@@ -1,5 +1,12 @@
-from turtle import Turtle, Screen
+from turtle import Turtle, Screen, colormode
 from random import choice
+import turtle
+
+w = Screen()
+tim = Turtle()
+tim.hideturtle()
+tim.penup()
+colormode(255)
 
 color_list = [(205, 163, 100),
  (230, 211, 87),
@@ -26,3 +33,17 @@ color_list = [(205, 163, 100),
  (83, 58, 53),
  (74, 48, 51)]
 
+def get_random_color():
+    return choice(color_list)
+
+# Draw 10x10 grid of dots
+# dot size 10px
+# spacing 20px
+
+for x in range(11):
+    for y in range(11):
+        tim.setx(20*x)
+        tim.sety(20*y)
+        tim.dot(10, get_random_color())
+
+w.exitonclick()
